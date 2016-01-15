@@ -1,0 +1,88 @@
+// Variables
+$size: 50px;
+
+$third: 33.3%;
+$fourth: 25%;
+$diff: $third - $fourth;
+
+
+
+
+// Mixin's
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+
+@mixin transform($transform...) {
+  -moz-transform:    $transform;
+  -o-transform:      $transform;
+  -webkit-transform: $transform;
+  transform:         $transform;
+}
+
+@mixin spanTop( $nth, $amount ) {
+  & > span:nth-child(#{$nth}) {
+    top: $amount;
+  }
+}
+
+@mixin spanTrans( $nth, $transform ) {
+  & > span:nth-child(#{$nth}) {
+    @include transform( $transform );
+  }
+}
+
+
+
+
+
+// Styling
+
+.r-hamburger {
+  cursor: pointer;
+  display: inline-block;
+  height: $size;
+  position: relative;
+  width: $size;
+
+  & > span {
+    background-color: #333;
+    display: block;
+    height: $third/2;
+    position: absolute;
+    width: 100%;
+
+    @include transition( all 0.25s ease-in-out );
+  }
+
+  &.r-hamburger-rounded > span {
+    border-radius: 10px;
+  }
+
+  &.r-hamburger-slower > span {
+    @include transition( all 0.5s ease-in-out );
+  }
+
+  &.r-hamburger-faster > span {
+    @include transition( all 0.1s ease-in-out );
+  }
+
+  @include spanTop( 1, $diff * 2 );
+  @include spanTop( 2, $diff * 5 );
+  @include spanTop( 3, $diff * 8 );
+}
+
+.r-hamburger-open {
+
+  @include spanTop( 1, $diff * 5 );
+  @include spanTrans( 1, rotate( 135deg ) );
+
+  @include spanTrans( 2, scale( 0.0 ) );
+
+  @include spanTop( 3, $diff * 5 );
+  @include spanTrans( 3, rotate( -135deg ) );
+}
