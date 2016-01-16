@@ -1,10 +1,14 @@
 {
   "name": "ractive-hamburger",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "A simple Ractive \"hamburger\" (expand-menu) component",
   "main": "ractive-hamburger.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fwertz/ractive-hamburger.git"
   },
   "keywords": [
     "ractive",

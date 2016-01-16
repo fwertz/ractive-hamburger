@@ -3,8 +3,9 @@
 
 
 ### Demo
-Demo will be included soon.
+![Hameburger Gif](http://i.imgur.com/n3bpKI2.gif)
 
+Codepen link will be available at some point.
 
 
 ### Installation
@@ -35,6 +36,7 @@ If not using modules, **ractive-hamburger** will expose a **`RactiveHamburger`**
 <r-hamburger
     size="75px"
     rounded="true"
+    speed="slower"
     color="#EFEFEF" />
 ```
 
@@ -45,6 +47,8 @@ If not using modules, **ractive-hamburger** will expose a **`RactiveHamburger`**
     + Round the corners of the hamburger "buns"
 + `color` [`#333`]
     + Color of the hamburger "buns"
++ `speed` [`undefined`] (`"faster"` | `"slower"`)
+    + Speed of hamburger animation. Valid values are `faster` or `slower`.
 
 ### Events
 + `open`
